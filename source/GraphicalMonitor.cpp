@@ -56,6 +56,20 @@ int GraphicalMonitor::loop(void)
 
         window.clear();
 
+        // TEMPORARY
+
+        sf::RectangleShape rect({200,200});
+        
+        rect.setFillColor(sf::Color::Transparent);
+        rect.setOutlineThickness(2.f);
+        rect.setOutlineColor(sf::Color::Red);
+
+        rect.setPosition({10, 10});
+
+        window.draw(rect);
+
+        // !TEMPORARY
+
         window.display();
     }
     return (0);
