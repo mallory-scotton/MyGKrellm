@@ -79,6 +79,10 @@ bool MemoryModule::refresh(void)
     m_swapFree = m_data["SwapFree"];
     m_swapUsed = (((float)m_swapTotal - (float)m_swapFree) * 100.f) / (float)m_swapTotal;
 
+    if (m_graph.size() == 100)
+        m_graph.pop();
+    m_graph.push({m_memUsed, m_swapUsed});
+
     return (true);
 }
 
@@ -116,4 +120,10 @@ int MemoryModule::getSwapTotal(void) const
 int MemoryModule::getSwapFree(void) const
 {
     return (m_swapFree);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+std::queue<MemoryModule::Data> MemoryModule::getGraph(void) const
+{
+    return (m_graph);
 }
