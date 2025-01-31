@@ -60,6 +60,7 @@
 #include "modules/OsModule.hpp"
 #include "modules/NetworkModule.hpp"
 #include "modules/CpuModule.hpp"
+#include "modules/MemoryModule.hpp"
 
 int main(void)
 {
@@ -68,6 +69,7 @@ int main(void)
     OsModule os;
     NetworkModule network;
     CpuModule cpu;
+    MemoryModule memory;
 
     user.refresh();
     std::cout << "USER_MODULE:" << std::endl;
@@ -96,9 +98,18 @@ int main(void)
     for (size_t i = 0; i < info.size(); i++) {
         std::cout << "\tCPU " << i << ": " << std::endl;
         for (const auto& pair : info[i]) {
-            std::cout << "\t\t" << pair.first << " : " << pair.second << std::endl;
+            std::cout << "\t\t" << pair.first << ": " << pair.second << std::endl;
         }
     }
+
+    memory.refresh();
+    std::cout << "MEMORY_MODULE:" << std::endl;
+    std::cout << "\tMemory Total: " << memory.getMemoryTotal() << std::endl;
+    std::cout << "\tMemory Free: " << memory.getMemoryFree() << std::endl;
+    std::cout << "\tMemory Used: " << memory.getMemoryUsed() << std::endl;
+    std::cout << "\tSwap Total: " << memory.getSwapTotal() << std::endl;
+    std::cout << "\tSwap Free: " << memory.getSwapFree() << std::endl;
+    std::cout << "\tSwap Used: " << memory.getSwapUsed() << std::endl;
 
     return (0);
 }

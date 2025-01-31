@@ -32,6 +32,7 @@ SOURCES			=	source/modules/UserModule.cpp \
 					source/modules/OsModule.cpp \
 					source/modules/NetworkModule.cpp \
 					source/modules/CpuModule.cpp \
+					source/modules/MemoryModule.cpp \
 					source/main.cpp
 
 ###############################################################################
