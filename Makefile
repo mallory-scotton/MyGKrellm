@@ -17,7 +17,8 @@ CFLAGS			=	-std=c++20 \
 					-Werror
 LFLAGS			=	-lsfml-graphics \
 					-lsfml-window \
-					-lsfml-system
+					-lsfml-system \
+					-lncurses
 IFLAGS			=	-Iinclude
 DFLAGS			=
 
@@ -33,6 +34,8 @@ SOURCES			=	source/modules/UserModule.cpp \
 					source/modules/NetworkModule.cpp \
 					source/modules/CpuModule.cpp \
 					source/modules/MemoryModule.cpp \
+					source/IMonitorDisplay.cpp \
+					source/GraphicalMonitor.cpp \
 					source/TextMonitor.cpp \
 					source/main.cpp
 

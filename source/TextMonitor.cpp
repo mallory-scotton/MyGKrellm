@@ -41,6 +41,22 @@ TextMonitor::~TextMonitor()
 ///////////////////////////////////////////////////////////////////////////////
 int TextMonitor::loop(void)
 {
-    std::cout << "TEXT" << std::endl;
+    initscr();
+    noecho();
+    cbreak();
+    timeout(400);
+    curs_set(0);
+    start_color();
+    keypad(stdscr, 1);
+    use_default_colors();
+    init_pair(10, COLOR_RED, -1);
+    init_pair(11, COLOR_GREEN, -1);
+    while (true) {
+        refresh();
+        napms(200);
+    }
+    curs_set(1);
+    nocbreak();
+    endwin();
     return (0);
 }

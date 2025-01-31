@@ -30,6 +30,7 @@
 #include <iostream>
 #include "IMonitorModule.hpp"
 #include "TextMonitor.hpp"
+#include "GraphicalMonitor.hpp"
 
 static int printHelp(int code)
 {
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
     if (arg == "--help" || arg == "-h")
         return (printHelp(0));
     if (arg == "--graphical" || arg == "-g")
-        return (0);
+        return (GraphicalMonitor().loop());
     if (arg == "--text" || arg == "-t")
         return (TextMonitor().loop());
     return (printHelp(84));
